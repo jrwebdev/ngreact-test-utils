@@ -52,12 +52,25 @@ if (process.env.NODE_ENV === 'ci') {
       base: 'SauceLabs',
       browserName: 'MicrosoftEdge',
       platform: 'Windows 10'
+    },
+    sl_safari_osx: {
+      base: 'SauceLabs',
+      browserName: 'safari',
+      platform: 'OS X 10.11'
+    },
+    sl_ios: {
+      base: 'SauceLabs',
+      browserName: 'iphone'
+    },
+    sl_android: {
+      base: 'SauceLabs',
+      browserName: 'android'
     }
   };
   browsers = Object.keys(customLaunchers);
   autoWatch = false;
   singleRun = true;
-  reporters.push('saucelabs');
+  reporters = ['progress', 'saucelabs'];
 }
 
 
