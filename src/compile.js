@@ -1,3 +1,6 @@
+import angular from 'angular';
+import 'angular-mocks';
+
 const compile = (el, scope) => {
     let $scope, $compile, $timeout;
 
@@ -15,9 +18,6 @@ const compile = (el, scope) => {
     const destroy = () => {
         $scope.$destroy();
         compiledEl.remove();
-        $scope = null;
-        $compile = null;
-        $timeout = null;
     };
 
     const update = (scope) => {
