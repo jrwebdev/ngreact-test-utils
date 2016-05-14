@@ -1,6 +1,6 @@
+import angular from 'angular';
 import {Simulate} from 'react-addons-test-utils';
 import extend from 'lodash/extend';
-import isFunction from 'lodash/isFunction';
 
 const reactEventMap = {
     mousedown: 'mouseDown',
@@ -16,21 +16,6 @@ const reactEventMap = {
 
 const getDOMNode = (el) => el && !el.nodeName ? el[0] : el;
 const keyEventData = (keyCode, eventData = {}) => extend(eventData, {keyCode, which: keyCode, charCode: keyCode});
-const createEvent = (event, eventData) => {
-    // TODO: Do not bubble mouse enter or mouse leave
-    eventData.bubbles = (eventData.bubbles !== false);
-    let e;
-    if (!isFunction(window.Event)) {
-        e = document.createEvent('Event');
-        e.initEvent(event.toLowerCase(), eventData.bubbles, eventData.cancelable);
-    } else {
-        e = new Event(event.toLowerCase(), {
-            bubbles: eventData.bubbles,
-            cancelable: eventData.cancelable
-        });
-    }
-    return e;
-};
 
 const simulate = (el, event, eventData = {}) => {
 
@@ -44,17 +29,14 @@ const simulate = (el, event, eventData = {}) => {
         throw new Error ('No event specified');
     }
 
-    eventData.target = eventData.target || el;
+    // TODO: Should really determine if element is Angular or React
 
-    // Angular (native) event
-    let e = createEvent(event, eventData);
-    e = extend(e, eventData);
-    el.dispatchEvent(e);
+    // Angular event
+    angular.element(el).triggerHandler({...eventData, type: event.toLowerCase()});
 
     // React event
     let reactEvent = reactEventMap[event] || event;
-    eventData.type = reactEvent;
-    Simulate[reactEvent](el, eventData);
+    Simulate[reactEvent](el, {...eventData, type: reactEvent});
 
 };
 
@@ -68,6 +50,7 @@ simulate.focus = (el, eventData) => simulate(el, 'focus', eventData);
 simulate.blur = (el, eventData) => simulate(el, 'blur', eventData);
 simulate.change = (el, value, eventData = {}) => {
     el = getDOMNode(el);
+    // TODO: Change value
     el.value = value;
     eventData.target = eventData.target || el;
     eventData.target.value = value;

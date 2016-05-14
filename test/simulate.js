@@ -40,6 +40,14 @@ describe ('simulate', function () {
             expect(this.component.scope.onClick).toHaveBeenCalled();
         });
 
+        it ('should return the target for the event', function () {
+            this.component = compile('<div ng-click="onClick($event)"></div>', {
+                onClick: jasmine.createSpy('onClick')
+            });
+            simulate.click(this.component.el);
+            expect(getEvent(this.component.scope.onClick).target).toEqual(this.component.el[0]);
+        });
+
         it ('should simulate a key press event', function () {
             this.component = compile('<div ng-keypress="onKeyPress($event)"></div>', {
                 onKeyPress: jasmine.createSpy('onKeyPress')
@@ -131,6 +139,14 @@ describe ('simulate', function () {
             });
             simulate.click(getReactEl(this.component.el));
             expect(this.component.scope.onClick).toHaveBeenCalled();
+        });
+
+        it ('should return the target for the event', function () {
+            this.component = compile('<event-component on-click="onClick"></event-component>', {
+                onClick: jasmine.createSpy('onClick')
+            });
+            simulate.click(getReactEl(this.component.el));
+            expect(getEvent(this.component.scope.onClick).target).toEqual(getReactEl(this.component.el));
         });
 
         it ('should simulate a key press event', function () {

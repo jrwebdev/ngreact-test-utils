@@ -20,7 +20,11 @@ let config = {
                 plugins: ['transform-object-rest-spread']
             }
         }]
-    }
+    },
+    externals: [
+        /angular/,
+        /react/
+    ]
 };
 
 module.exports = config;

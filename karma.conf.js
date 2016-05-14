@@ -9,6 +9,7 @@ webpackConfig = {
 let customLaunchers = {},
     browsers = ['Chrome'],
     autoWatch = true,
+    singleRun = false,
     reporters = ['logcapture', 'super-dots', 'mocha'];
 
 if (process.env.NODE_ENV === 'ci') {
@@ -55,7 +56,8 @@ if (process.env.NODE_ENV === 'ci') {
   };
   browsers = Object.keys(customLaunchers);
   autoWatch = false;
-  reporters = ['progress', 'saucelabs'];
+  singleRun = true;
+  reporters.push('saucelabs');
 }
 
 
@@ -88,7 +90,7 @@ module.exports = function(config) {
     autoWatch,
     customLaunchers,
     browsers,
-    singleRun: true,
+    singleRun,
     concurrency: Infinity,
     captureTimeout: 120000,
     browserNoActivityTimeout: 30000
