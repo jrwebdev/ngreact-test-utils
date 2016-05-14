@@ -3,7 +3,7 @@ Utilities for testing Angular directives which contain React components with [ng
 
 These utilities are not for testing React components directly - for that I would recommend using [Enzyme](https://github.com/airbnb/enzyme).
 
-[![Sauce Test Status](https://saucelabs.com/buildstatus/jrwebdev)](https://saucelabs.com/u/jrwebdev)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/jrwebdev.svg)](https://saucelabs.com/u/jrwebdev)
 
 ## Installation
 TBD
