@@ -1,4 +1,3 @@
-import angular from 'angular';
 import {Simulate} from 'react-addons-test-utils';
 import extend from 'lodash/extend';
 

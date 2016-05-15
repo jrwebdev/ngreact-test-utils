@@ -1,6 +1,3 @@
-import angular from 'angular';
-import 'angular-mocks';
-
 const compile = (el, scope = {}) => {
     let $scope, $compile, $timeout;
 

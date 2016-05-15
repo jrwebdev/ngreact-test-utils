@@ -19,6 +19,8 @@ to be run when Angular directives are migrated to React components with the use 
 ### Usage
 `import {simulate, compile} from 'ngreact-test-utils';`
 
+Both `angular` and `angular-mocks` must be loaded to use.
+
 See the [test/](https://github.com/jrwebdev/ngreact-test-utils/tree/master/test) directory for example usage
 
 ## API Documentation

@@ -1,7 +1,7 @@
 {
   "name": "ngreact-test-utils",
   "description": "Utilities for testing Angular applications which use React and ngReact",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/ngreact-test-utils.js",
   "files": [
     "dist/"
@@ -16,7 +16,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "angular-mocks": "^1.5.5",
     "lodash": "^4.11.2",
     "react-addons-test-utils": "^15.0.2"
   },
