@@ -48,7 +48,7 @@ Fires both `.triggerHandler()` on the element for Angular and generates a [Synth
 2. `event` (string) Event to fire. Can either be in lowercase or using React's lower camelCase conventions - the appropriate conversion will occur internally
 3. `eventData` (Object) Additional data to pass to the event. By default `bubbles` is set to true.
 
-A number of convenience methods are also available for `simulate` for common events:
+A number of convenience methods are also available for `simulate` for common events. For all other events, or for additional flexibility, use `simulate()` directly.
 
 #### simulate.click(el, [eventData])
 #### simulate.mouseOver(el, [eventData])
@@ -62,5 +62,3 @@ A number of convenience methods are also available for `simulate` for common eve
 
 - **note 1:** For `keyUp`, `keyDown` and `keyPress`, `keyCode`, `which` and `charCode` will all be set to the value of `keyCode`, which should be a number. To use `key`, this must be passed in `eventData`
 - **note 2:** `value` will be set on the raw DOM node's `.value` property prior to firing a change event. If you do not require this behaviour, use `simulate()` directly.
-
-For all other events, or for additional flexibility, use `simulate()` directly.
