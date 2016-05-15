@@ -2,6 +2,9 @@
   "name": "ngreact-test-utils",
   "description": "Utilities for testing Angular applications which use React and ngreact",
   "version": "1.0.0",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "test": "karma start",
     "build": "cross-env NODE_ENV=production webpack"

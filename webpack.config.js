@@ -23,7 +23,8 @@ let config = {
     },
     externals: [
         /angular/,
-        /react/
+        /react/,
+        /lodash/
     ]
 };
 
