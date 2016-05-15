@@ -6,11 +6,13 @@ These utilities are not for testing React components directly - for that I would
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/jrwebdev.svg)](https://saucelabs.com/u/jrwebdev)
 
 ## Installation
-TBD
+
+`npm i -D ngreact-test-utils`
 
 ### Usage
+`import {simulate, compile} from 'ngreact-test-utils';`
 
-See the [test/](https://github.com/jrwebdev/ngreact-test-utils/tree/master/test) directory.
+See the [test/](https://github.com/jrwebdev/ngreact-test-utils/tree/master/test) directory for example usage
 
 ## API Documentation
 
