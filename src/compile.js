@@ -1,7 +1,7 @@
 import angular from 'angular';
 import 'angular-mocks';
 
-const compile = (el, scope) => {
+const compile = (el, scope = {}) => {
     let $scope, $compile, $timeout;
 
     angular.mock.inject((_$rootScope_, _$compile_, _$timeout_) => {
