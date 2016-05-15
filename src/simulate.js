@@ -9,9 +9,38 @@ const reactEventMap = {
     mouseout: 'mouseOut',
     mouseenter: 'mouseEnter',
     mouseleave: 'mouseLeave',
+    mousemove: 'mouseMove',
     keypress: 'keyPress',
     keydown: 'keyDown',
-    keyup: 'keyUp'
+    keyup: 'keyUp',
+    doubleclick: 'doubleClick',
+    dragend: 'dragEnd',
+    dragenter: 'dragEnter',
+    dragleave: 'dragLeave',
+    dragover: 'dragOver',
+    dragstart: 'dragStart',
+    dragexit: 'dragExit',
+    contextmenu: 'contextMenu',
+    touchcancel: 'touchCancel',
+    touchend: 'touchEnd',
+    touchmove: 'touchMove',
+    touchstart: 'touchStart',
+    animationstart: 'animationStart',
+    animationend: 'animationEnd',
+    animationiteration: 'animationIteration',
+    transitionend: 'transitionEnd',
+    compositionstart: 'compositionStart',
+    compositionupdate: 'compositionUpdate',
+    compositionend: 'compositionEnd',
+    canplay: 'canPlay',
+    canplaythrough: 'canPlayThrough',
+    durationchange: 'durationChange',
+    loadeddata: 'loadedData',
+    loadedmetadata: 'loadedMetadata',
+    loadstart: 'loadStart',
+    ratechange: 'rateChange',
+    timeupdate: 'timeUpdate',
+    volumechange: 'volumeChange'
 };
 
 const getDOMNode = (el) => el && !el.nodeName ? el[0] : el;
@@ -50,10 +79,7 @@ simulate.focus = (el, eventData) => simulate(el, 'focus', eventData);
 simulate.blur = (el, eventData) => simulate(el, 'blur', eventData);
 simulate.change = (el, value, eventData = {}) => {
     el = getDOMNode(el);
-    // TODO: Change value
     el.value = value;
-    eventData.target = eventData.target || el;
-    eventData.target.value = value;
     simulate(el, 'change', eventData);
 };
 

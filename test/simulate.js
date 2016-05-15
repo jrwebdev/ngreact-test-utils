@@ -6,7 +6,7 @@ import ngReact from 'ngreact';
 
 const app = angular.module('simulateApp', [ngReact.name]);
 
-const EventComponent = (props) => <div {...props}></div>;
+const EventComponent = (props) => <input {...props} />;
 EventComponent.propTypes = {
     onClick: React.PropTypes.func,
     onKeyPress: React.PropTypes.func,
@@ -15,7 +15,9 @@ EventComponent.propTypes = {
     onMouseOver: React.PropTypes.func,
     onMouseOut: React.PropTypes.func,
     onFocus: React.PropTypes.func,
-    onBlur: React.PropTypes.func
+    onBlur: React.PropTypes.func,
+    onChange: React.PropTypes.func,
+    value: React.PropTypes.string
 };
 
 app.directive('eventComponent', (reactDirective) => reactDirective(EventComponent));
@@ -131,7 +133,7 @@ describe ('simulate', function () {
     describe ('ngReact directive', function () {
 
         // Get the element which has the events attached to it
-        const getReactEl = (el) => el[0].querySelector('div');
+        const getReactEl = (el) => el[0].querySelector('input');
 
         it ('should simulate a click event', function () {
             this.component = compile('<event-component on-click="onClick"></event-component>', {
@@ -218,6 +220,25 @@ describe ('simulate', function () {
             });
             simulate.blur(getReactEl(this.component.el));
             expect(this.component.scope.onBlur).toHaveBeenCalled();
+        });
+
+        it ('should simulate a change event', function () {
+            this.component = compile('<event-component on-change="onChange"></event-component>', {
+                onChange: jasmine.createSpy('onChange'),
+                value: 'A Value'
+            });
+            simulate.change(getReactEl(this.component.el), 'New Value');
+            expect(this.component.scope.onChange).toHaveBeenCalled();
+        });
+
+        it ('should update the value for the change event', function () {
+            this.component = compile('<event-component on-change="onChange"></event-component>', {
+                onChange: jasmine.createSpy('onChange'),
+                value: 'A Value'
+            });
+            simulate.change(getReactEl(this.component.el), 'New Value');
+            let event = getEvent(this.component.scope.onChange);
+            expect(event.target.value).toEqual('New Value');
         });
 
     });
