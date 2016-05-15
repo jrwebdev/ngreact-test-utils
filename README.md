@@ -51,8 +51,7 @@ A number of convenience methods are also available for `simulate` for common eve
 #### simulate.blur(el, [eventData])
 #### simulate.change(el, value, [eventData])
 
-<br>
 - **note 1:** For `keyUp`, `keyDown` and `keyPress`, `keyCode`, `which` and `charCode` will all be set to the value of `keyCode`, which should be a number. To use `key`, this must be passed in `eventData`
 - **note 2:** `value` will be set on the raw DOM node's `.value` property prior to firing a change event. If you do not require this behaviour, use `simulate()` directly.
 
-<br>For all other events, or for additional flexibility, use `simulate()` directly.
+For all other events, or for additional flexibility, use `simulate()` directly.
