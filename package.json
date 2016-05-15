@@ -1,7 +1,7 @@
 {
   "name": "ngreact-test-utils",
   "description": "Utilities for testing Angular applications which use React and ngReact",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/ngreact-test-utils.js",
   "files": [
     "dist/"

@@ -7,7 +7,8 @@ let config = {
     entry: './index.js',
     output: {
         path: __dirname + '/dist',
-        filename: 'ngreact-test-utils.js'
+        filename: 'ngreact-test-utils.js',
+        libraryTarget: 'commonjs'
     },
     devtool: 'source-map',
     module: {
@@ -22,9 +23,9 @@ let config = {
         }]
     },
     externals: [
-        /angular/,
-        /react/,
-        /lodash/
+        /^angular/,
+        /^react/,
+        /^lodash/
     ]
 };
 
