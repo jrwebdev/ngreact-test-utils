@@ -5,6 +5,14 @@ These utilities are not for testing React components directly - for that I would
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/jrwebdev.svg)](https://saucelabs.com/u/jrwebdev)
 
+`ngreact-test-utils` provides two functions - `compile()` and `simulate()`:
+ - `compile()` encapsulates all of the usual bootstrapping to set up Angular directives to test, in addition to flushing
+ `$timeout` to allow any `ngReact` components. This function can also be used for Angular directives which do not use ngReact.
+to be added to the DOM.
+ - `simulate()` fires both Angular and React events for a given element, allowing the same tests
+to be run when Angular directives are migrated to React components with the use of ngReact.
+
+
 ## Installation
 
 `npm i -D ngreact-test-utils`
