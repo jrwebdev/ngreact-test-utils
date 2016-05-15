@@ -3,6 +3,9 @@ Utilities for testing Angular directives which contain React components with [ng
 
 These utilities are not for testing React components directly - for that I would recommend using [Enzyme](https://github.com/airbnb/enzyme).
 
+[![npm version](https://badge.fury.io/js/ngreact-test-utils.svg)](https://badge.fury.io/js/ngreact-test-utils)
+[![Build Status](https://travis-ci.org/jrwebdev/ngreact-app.svg?branch=master)](https://travis-ci.org/jrwebdev/ngreact-app)
+
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/jrwebdev.svg)](https://saucelabs.com/u/jrwebdev)
 
 `ngreact-test-utils` provides two functions - `compile()` and `simulate()`:
