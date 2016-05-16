@@ -51,7 +51,7 @@ Fires both `.triggerHandler()` on the element for Angular and generates a [Synth
 #### Arguments
 1. `el` (HTMLElement|Object) Raw DOM Node or Angular element to fire the event on
 2. `event` (string) Event to fire. Can either be in lowercase or using React's lower camelCase conventions - the appropriate conversion will occur internally
-3. `eventData` (Object) Additional data to pass to the event. By default `bubbles` is set to true.
+3. `eventData` (Object) Additional data to pass to the event.
 
 A number of convenience methods are also available for `simulate` for common events. For all other events, or for additional flexibility, use `simulate()` directly.
 
